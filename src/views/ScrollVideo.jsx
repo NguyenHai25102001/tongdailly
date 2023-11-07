@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import '../sass/test.css';
 import ScrollVideoItem from '../components/ScrollVideoItem';
-import SelectShare from '../components/SelectShare';
 
 function ScrollVideo() {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -16,7 +15,7 @@ function ScrollVideo() {
 
         const currentY = e.clientY || e.touches[0].clientY;
         const deltaY = currentY - startY.current;
-        const sensitivity = 200; // Điều kiện nhạy để chuyển slide
+        const sensitivity = 100; // Điều kiện nhạy để chuyển slide
 
         if (deltaY > sensitivity) {
             // Kéo chuột xuống hoặc vuốt lên trên thiết bị cảm ứng
@@ -36,9 +35,30 @@ function ScrollVideo() {
     const handleEnd = () => {
         startY.current = null;
     };
+    //
+    const [active, isActive] = React.useState(1);
+    const list = [
+        { title: 'Dành cho bạn' },
+        { title: 'Đang follow' }
+    ]
 
     return (
         <div className='position-relative'>
+            <div className="position-absolute w-100 z-3" style={{ top: '3%' }}>
+                <div className="d-flex justify-content-center gap-5 text-white " style={{
+                    fontSize: '1rem'
+                }}>
+                    {
+                        list.map((item, index) => (
+                            <div onClick={() => isActive(index)} role='button' className={(active === index ? 'fw-bold' : '')}>{item.title}</div>
+                        ))
+                    }
+
+
+                </div>
+
+            </div>
+
             <div
                 className="slider-container"
                 onTouchStart={handleStart}
