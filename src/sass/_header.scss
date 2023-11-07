@@ -1,0 +1,30 @@
+.wrapper__header {
+    .header-title {
+        font-family: 'Sarabun', sans-serif;
+       
+        
+    }
+
+    .header-search {
+        border-radius: 14px;
+        border: 1px solid #666;
+        background: #DDE1E7;
+
+        input {
+            outline: 0;
+            background: transparent;
+            border: 0;
+        }
+
+        .header-search-icon {
+            width: 42px;
+            border-radius: 12px;
+        }
+
+        button {
+            outline: 0;
+            border: 0;
+        }
+
+    }
+}

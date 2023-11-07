@@ -1,0 +1,24 @@
+@import './layout';
+@import './header';
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+//font gg
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Sarabun:wght@600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper__mobile {
+  width: 100%;
+  max-width: 455px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
