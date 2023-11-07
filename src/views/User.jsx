@@ -13,24 +13,27 @@ export default function User() {
     return (
         <div className="wrapper__user">
             <HeaderCart title='Cá nhân' />
-            <div className=" bg-white pt-4 p-2">
-                <div className="header-user  d-flex justify-content-between">
-                    <div className="d-flex gap-2">
+            <div className=" bg-white pt-4 p-2 w-100">
+                <div className="header-user w-100 position-relative">
+                    <div className="d-flex gap-2 w-100">
                         <div className="avatar rounded-circle"
                             style={{
+
                                 backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeson9_1ap9XCr5CBRi5GAl8KbPP4Ibz6noUQK1uY-ULjsCMHZcAHoZ5apPvbqp3E_AU&usqp=CAU'})`,
                                 backgroundSize: 'cover',
                             }}>
                             <div className="pt"></div>
                         </div>
-                        <div className="">
+                        <div className=" d-flex flex-column justify-content-center">
                             <div className="name">Nguyễn Linh Đan </div>
                             <div className="sk">Sang kênh quản lý bán lẻ</div>
 
                         </div>
 
                     </div>
-                    <div className="">
+                    <div className="position-absolute" style={{
+                        top: '0', right: '0',
+                    }}>
                         <div className=" d-inline p-2 bg-warning text-white">
                             Hạng bạc
                         </div>
