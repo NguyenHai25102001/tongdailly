@@ -10,6 +10,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Pagination } from 'swiper/modules';
 import SelectShare from './SelectShare';
 import $ from 'jquery';
+import SelectShareScroll from './SelectShareScroll';
 const ScrollVideoItem = () => {
     const imageSile = [
         { path: 'https://swiperjs.com/demos/images/nature-1.jpg' },
@@ -24,18 +25,24 @@ const ScrollVideoItem = () => {
         { path: 'https://swiperjs.com/demos/images/nature-10.jpg' },
     ]
 
-    //Hiển thị share
     const [activeShare, setActiveShare] = React.useState(false);
 
-    React.useEffect(() => {
-        $('#clickShare').on('click', function () {
-            setActiveShare(!activeShare);
-            console.log(activeShare); // In giá trị activeShare sau khi click
-        });
-    }, [activeShare]);
+    const toggleShare = () => {
+        if (activeShare) {
+            $('.wrapper__tabbar').show();
+            $('.show').addClass('d-none');
+            setActiveShare(false)
+        } else {
 
+            setActiveShare(true)
+            $('.wrapper__tabbar').hide();
+            $('.show').removeClass('d-none');
+        }
+
+        console.log(activeShare);
+    };
     return (
-        <div className="wrapper__scroll_video-item"
+        <div className="wrapper__scroll_video-item position-relative"
         >
             <div className="scroll-info z-3">
                 <div className="name overflow-hidden text-white">Tên nhà bán nnnnnnnnnnnnnnnnnnnnnn</div>
@@ -95,7 +102,7 @@ const ScrollVideoItem = () => {
                     </svg>
                 </div>
                 {/* click share */}
-                <div className="d-flex justify-content-center mb-3" id='clickShare'><svg xmlns="c" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <div role='button' id="clickShare" onClick={toggleShare} className="d-flex justify-content-center mb-3"><svg xmlns="c" width="32" height="32" viewBox="0 0 32 32" fill="none">
                     <path d="M26.1156 20.338C24.2472 20.338 22.5991 21.2207 21.5224 22.5723L11.5353 17.5081C11.666 17.0246 11.76 16.525 11.76 15.9993C11.76 15.4269 11.6484 14.888 11.4926 14.3636L21.4357 9.32286C22.5065 10.7357 24.1972 11.6591 26.117 11.6591C29.3692 11.6591 32 9.05055 32 5.82882C32.0001 2.61 29.3692 0 26.1171 0C22.8723 0 20.2386 2.60999 20.2386 5.82875C20.2386 6.35602 20.3326 6.85702 20.4648 7.34202L10.4792 12.4062C9.40097 11.0531 7.7499 10.1676 5.87853 10.1676C2.62929 10.1676 0 12.779 0 15.9993C0 19.2195 2.62936 21.8295 5.87853 21.8295C7.80131 21.8295 9.49059 20.9032 10.5658 19.489L20.5044 24.5298C20.3486 25.0526 20.2356 25.5959 20.2356 26.1698C20.2356 29.39 22.8693 32 26.1141 32C29.3663 32 31.9971 29.39 31.9971 26.1698C31.9986 22.9466 29.3678 20.338 26.1156 20.338Z" fill="white" />
                 </svg></div>
 
@@ -103,10 +110,15 @@ const ScrollVideoItem = () => {
 
             </div>
             {/* Share */}
-            <div className="">
-                <SelectShare status={activeShare} />
+            <div className={"show position-absolute bg-white p-2 w-100 " + (activeShare ? '' : 'd-none')} id='show' style={{
+                bottom: 0,
+                zIndex: '99',
+            }}>
+                <SelectShareScroll url={'https://www.tiktok.com/foryou'} status={activeShare}
+                    handleClose={toggleShare} />
             </div>
-            {/* end share */}
+
+
         </div>
     )
 }

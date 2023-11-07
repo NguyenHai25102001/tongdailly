@@ -274,7 +274,7 @@
         }
 
         .buy-house--image {
-            width: 13.6vw;
+            width: 13.6%;
 
             .img-iteam {
                 padding-top: 100%;
@@ -795,7 +795,7 @@
     .purchase_history-item {
         .header--item {
             .avatar-shop {
-                width: 18.33%;
+                width: 9.33%;
 
                 img {
                     aspect-ratio: 1/1;
@@ -833,7 +833,7 @@
             }
 
             .product-img {
-                width: 82px;
+                width: 21.8%;
 
                 .pt {
                     padding-top: 85.36%;
@@ -1116,6 +1116,19 @@
             background-color: #6D44E0;
 
         }
+    }
+
+}
+
+.wrapper__scroll_video-item {
+    .wrapper__share {
+        position: static;
+        height: 150px;
+        width: 100%;
+        background: white;
+        // bottom: 0;
+        top: 0;
+        z-index: 100;
     }
 
 }

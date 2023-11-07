@@ -10,10 +10,11 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import formatPrice from "./formatPrice";
 import { Link } from "react-router-dom";
 const BuyHouseIteam = () => {
+    
     return (
         <div className="wrapper__buy-house-iteam bg-white w-100 rounded pb-4">
-            <div className="buy-house-iteam--content ps-3 py-3 pe-2 ">
-                <div className="d-flex justify-content-between">
+            <div className="buy-house-iteam--content ps-3 py-3 pe-2 w-100 ">
+                <div className=" justify-content-between position-relative">
                     <div className="d-flex gap-2">
                         <div className="buy-house--image"
                             style={{
@@ -23,14 +24,14 @@ const BuyHouseIteam = () => {
                             }}>
                             <div className="img-iteam"></div>
                         </div>
-                        <Link to={'/list-buy-house'} className="d-flex flex-column gap-1 justify-content-center">
+                        <Link to={'/list-buy-house'} className="d-flex flex-column justify-content-center">
                             <div className="buy-house--name">Tên nhà bán ...</div>
                             <span>Gian hàng có 2988 sản phẩm</span>
                             <span>Đã bán 234 sản phẩm</span>
                         </Link>
                     </div>
-                    <div className="d-flex flex-column justify-content-between">
-                        <div className="p-1 d-flex gap-1 border border-1 border-dark">
+                    <div className="position-absolute " style={{ top: '0', right: '0.5rem' }}>
+                        <div className="p-1 d-flex gap-1 border border-1 border-dark mb-1">
                             <div className="">
                                 <BiPlus />
                             </div>

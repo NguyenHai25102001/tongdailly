@@ -27,10 +27,7 @@ const ProductDefaults = () => {
     const handleBack = () => {
         window.history.back();
     }
-    const handleShareFacebook = () => {
-        // Mở một cửa sổ mới để chia sẻ lên Facebook
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentURL}`, '_blank');
-    };
+
     const id = 10;
 
     const handleCopyURL = () => {
@@ -43,16 +40,12 @@ const ProductDefaults = () => {
         document.body.removeChild(textArea);
     };
 
-    const handleShareInstagram = () => {
-        // Mở Instagram trong ứng dụng di động (điện thoại di động)
-        window.location.href = `instagram://share?text=Kiểm tra sản phẩm này&url=${currentURL}`;
-    };
     const [statusShare, setStatusShare] = React.useState(false);
     const handleStatusShare = (id: number) => {
         setStatusShare(!statusShare);
 
     }
-    const shareRef = useRef<HTMLDivElement>(null);
+
 
 
     return (

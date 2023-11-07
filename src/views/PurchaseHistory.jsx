@@ -139,9 +139,9 @@ export default function PurchaseHistory() {
             {
                 listOrder.map((item, index) => (
                     <div className="purchase_history-item py-3 bg-white mt-2 w-100" key={index}  >
-                        <div className="d-flex header--item align-items-center justify-content-between w-100">
+                        <div className="header--item align-items-center justify-content-between w-100 position-relative">
 
-                            <div className="d-flex gap-2 ms-3">
+                            <div className="d-flex gap-2 ms-3 w-100">
                                 <div className="avatar-shop">
                                     <img src={item.image} alt="dd" className="rounded-circle w-100 ratio ratio-1x1" />
                                 </div>
@@ -150,12 +150,14 @@ export default function PurchaseHistory() {
                                     <div className=""><div className="shop  text-white d-inline-block">{item.shop}</div></div>
                                 </div>
                             </div>
-                            <div className="status me-3 ">{item.status}</div>
+                            <div className="status me-3 position-absolute" style={{
+                                top: '0.5rem', right: "0.5rem"
+                            }}>{item.status}</div>
                         </div>
                         {
                             item.products.map((product, index) => (
-                                <div key={index} className="product--item d-flex justify-content-between mt-3 w-100">
-                                    <div className="d-flex gap-2 ms-3 align-items-center">
+                                <div key={index} className="product--item justify-content-between mt-3 w-100 position-relative">
+                                    <div className="d-flex gap-2 ms-3 align-items-center w-100">
                                         <div className="product-img rounded"
                                             style={{
                                                 backgroundImage: `url(${product.image})`,
@@ -165,9 +167,8 @@ export default function PurchaseHistory() {
                                             <div className="pt"></div>
                                         </div>
 
-                                        <div className="d-flex flex-column justify-content-between">
+                                        <div className="d-flex flex-column justify-content-between gap-1">
                                             <div className="name">{product.name}</div>
-
                                             <div className="content">{product.sku}</div>
                                             <div className="content">Phân loại: Size {product.size}-Màu {product.color}</div>
                                             <div className="content">Thương hiệu{product.brand}</div>
@@ -176,7 +177,8 @@ export default function PurchaseHistory() {
                                         </div>
 
                                     </div>
-                                    <div className="text-end mt-3 me-3">
+                                    <div className="text-end mt-3 me-3 position-absolute"
+                                        style={{ top: '0', right: '0.5rem' }}>
                                         <div className="price">{formatPrice(product.totalPayment)}</div>
                                         <div className="total-payment text-dark">SL : {product.sl}</div>
                                     </div>
